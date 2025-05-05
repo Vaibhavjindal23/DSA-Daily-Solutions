@@ -1,0 +1,58 @@
+✅ Remove Linked List Elements
+📝 Problem Statement:
+Given the head of a singly linked list and an integer val, remove all the nodes of the linked list that have Node.val == val, and return the new head.
+
+📘 Examples:
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
+Input: head = [], val = 1
+Output: []
+Input: head = [7,7,7,7], val = 7
+Output: []
+
+⚙️ Approach:
+
+Initial Cleanup: Skip all nodes from the beginning that match the given value (val).
+Reassign head: Update head to the first non-matching node.
+Traverse the list:
+Use a pointer temp to go through each node.
+Maintain a prev pointer to track the last valid node.
+If temp->val == val, skip the node by linking prev->next to temp->next.
+If not, move prev forward.
+
+💡 Time & Space Complexity:
+
+Time Complexity: O(n), where n is the number of nodes in the linked list.
+Space Complexity: O(1), in-place modification with constant extra space.
+
+
+✅ Happy Number
+📝 Problem Statement:
+A happy number is defined by the following process:
+Start with a positive integer.
+Replace it with the sum of the squares of its digits.
+Repeat the process until it becomes 1 (happy) or enters a loop (unhappy).
+
+📘 Examples:
+Input: n = 19
+Output: true
+Explanation:
+1^2 + 9^2 = 82 → 8^2 + 2^2 = 68 → 6^2 + 8^2 = 100 → 1^2 + 0 + 0 = 1
+Input: n = 2
+Output: false
+
+⚙️ Approach:
+
+Base Cases:
+If n == 1 or n == 7, return true immediately (these are known happy numbers).
+If n < 9 and not 1 or 7, return false.
+Digit Square Sum Loop:
+Repeatedly compute the sum of squares of the digits.
+If at any point sum == 1 or sum == 7, return true.
+If sum becomes a single-digit number and is not 1 or 7, return false.
+
+💡 Time & Space Complexity:
+
+Time Complexity: O(log n) per digit sum operation, with possibly multiple iterations.
+Space Complexity: O(1) — no extra data structures used.
+
