@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+         if(n == 1 || n==7){
+            return true;
+         }
+         else if(n<9) {
+            return false;
+         }
+         int sum1 = n; 
+         while(sum1 > 9){
+           int sum = sum1; int ans =0; 
+             while(sum > 0){
+            int lastdigit = sum % 10; 
+            ans = ans + (lastdigit* lastdigit);
+            sum = sum / 10;
+          }
+          sum1 = ans;
+            if(sum1 == 1 || sum1 == 7){
+            return true;
+          }
+             
+         }
+         return false;
+    }
+};
