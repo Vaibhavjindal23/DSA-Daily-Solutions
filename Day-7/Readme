@@ -1,0 +1,39 @@
+🚀 Problem 1: Plus One
+📝 Problem Description:
+You are given a large integer represented as an array digits, where each element represents one digit of the number from most significant to least significant. You need to increment this number by one and return the resulting array. The input does not contain any leading zeros.
+
+💡 Solution Approach:
+Traverse the array from the end.
+
+If the digit is less than 9, increment it and return.
+
+If it's 9, set it to 0 and continue left (carry over).
+
+If all digits were 9, insert a 1 at the beginning (e.g., [9,9,9] → [1,0,0,0]).
+
+⏱ Time Complexity:
+O(n) — where n is the length of the digits array.
+
+💾 Space Complexity:
+O(1) — extra space, apart from the result (in-place where possible).
+
+🚀 Problem 2: Rotate Linked List
+📝 Problem Description:
+Given the head of a singly linked list, rotate the list to the right by k places.
+
+💡 Solution Approach:
+Compute the length of the list.
+
+Normalize k using k % length to avoid full unnecessary rotations.
+
+Traverse to the (length - k)th node.
+
+Break the list at that point and reattach the tail to the old head.
+
+Return the new head.
+
+⏱ Time Complexity:
+O(n) — for traversing the list multiple times.
+
+💾 Space Complexity:
+O(1) — all operations are performed in-place.
