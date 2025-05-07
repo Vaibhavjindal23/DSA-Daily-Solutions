@@ -1,0 +1,74 @@
+📘 Problem 1: Odd Even Linked List
+📝 Description:
+Given the head of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return the reordered list.
+
+The first node is considered odd, the second even, and so on.
+
+Maintain relative order of nodes within the odd and even groups.
+
+Constraints:
+
+Number of nodes: 0 ≤ n ≤ 10^4
+
+Node value range: -10^6 ≤ Node.val ≤ 10^6
+
+Must solve in O(1) extra space and O(n) time.
+
+✅ Example:
+Input:
+head = [1,2,3,4,5]
+Output: [1,3,5,2,4]
+
+💡 Approach:
+Use two pointers: odd and even, starting at head and head->next respectively.
+Store the head of even list as evenhead to connect later.
+Rewire the next pointers:
+odd’s next points to even’s next (i.e., next odd)
+even’s next points to odd’s next (i.e., next even)
+Continue until even or even->next is nullptr.
+Finally, connect the end of odd list to start of even list (odd->next = evenhead).
+
+⏱ Time Complexity:
+O(n) — each node is visited once.
+
+🧠 Space Complexity:
+O(1) — only a few pointers are used.
+
+📘 Problem 2: Excel Sheet Column Number
+📝 Description:
+Given a string columnTitle (like in Excel), return its corresponding column number.
+
+A → 1
+
+Z → 26
+
+AA → 27
+
+AB → 28
+
+...
+
+Like converting base-26 to decimal.
+
+Constraints:
+
+1 ≤ columnTitle.length ≤ 7
+
+Only uppercase English letters
+
+Title in range ["A", "FXSHRXW"]
+
+✅ Example:
+Input: columnTitle = "AB"
+Output: 28
+
+💡 Approach:
+Treat each character as a digit in base-26.
+Loop from right to left, multiply character value (ch - 'A' + 1) with 26^position.
+Add to total sum.
+
+⏱ Time Complexity:
+O(n) — where n is the length of the string (at most 7).
+
+🧠 Space Complexity:
+O(1) — constant space usage.
