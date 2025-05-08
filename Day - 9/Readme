@@ -1,0 +1,41 @@
+🔁 Problem 1: Swap Nodes in a Linked List
+✅ Problem Statement
+Given the head of a singly linked list and an integer k, return the head of the linked list after swapping the values of the k-th node from the beginning and the k-th node from the end. The list is 1-indexed.
+
+🧠 Approach
+Traverse the list once to calculate its length.
+Locate the k-th node from the beginning using a simple traversal.
+Locate the k-th node from the end using the formula:
+length - k + 1 (1-indexed).
+Swap the values of these two nodes.
+Return the modified head of the list.
+
+⏱️ Time Complexity
+O(N): Where N is the number of nodes in the list. One pass to calculate length, and two partial passes to find target nodes.
+
+🗃️ Space Complexity
+O(1): No extra space used other than pointers.
+
+
+🔢 Problem 2: Find the Nth Digit in Infinite Sequence
+✅ Problem Statement
+You are given an integer n. Return the n-th digit of the infinite sequence:
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, ...
+
+🧠 Approach
+The sequence is built from blocks of numbers with increasing digit lengths:
+1-digit numbers: 1–9 (9 digits)
+2-digit numbers: 10–99 (90 × 2 = 180 digits)
+3-digit numbers: 100–999 (900 × 3 = 2700 digits), and so on.
+
+Subtract block digit lengths from n until you find the block that contains the n-th digit.
+Compute the actual number in the block that holds the target digit.
+Convert the number to string and extract the desired digit using string indexing.
+
+⏱️ Time Complexity
+O(log n): You iterate over digit-length blocks (which grow exponentially).
+
+Each conversion to string and indexing is constant time for reasonably sized numbers.
+
+🗃️ Space Complexity
+O(1): Only basic variables are used; no additional data structures.
