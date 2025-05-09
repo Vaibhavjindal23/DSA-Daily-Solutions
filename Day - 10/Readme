@@ -1,0 +1,69 @@
+📘 Bulb Switcher (LeetCode 319)
+Difficulty: Medium
+Topic: Math, Simulation
+
+🔍 Problem Statement
+You have n bulbs initially turned off. You perform n rounds of toggling:
+
+In the 1st round, you toggle every bulb (turning them all on).
+
+In the 2nd round, you toggle every 2nd bulb (even positions).
+
+In the 3rd round, every 3rd bulb is toggled.
+
+...
+
+In the i-th round, every i-th bulb is toggled.
+
+In the n-th round, only the last bulb is toggled.
+
+Return the number of bulbs that remain on after n rounds.
+
+💡 Solution Approach
+The core idea is based on the number of times each bulb is toggled:
+
+A bulb at position i is toggled once for every divisor of i.
+
+Most numbers have an even number of divisors.
+
+Only perfect squares (like 1, 4, 9...) have an odd number of divisors — because one of the divisors repeats (e.g., 3 × 3 for 9).
+
+So, only bulbs at positions that are perfect squares will be on after all toggling is done.
+
+To solve the problem, count how many perfect squares exist up to n. That’s equal to the integer part of sqrt(n).
+
+⏱️ Time and Space Complexity
+Time Complexity: O(1)
+
+Space Complexity: O(1)
+
+📘 Delete the Middle Node of a Linked List (LeetCode 2095)
+Difficulty: Medium
+Topic: Linked List, Two Pointers
+
+🔍 Problem Statement
+You are given the head of a singly linked list. Your task is to delete the middle node and return the updated head.
+
+The middle node is defined as the node at index ⌊n / 2⌋ using 0-based indexing.
+
+If the list has only one node, return nullptr.
+
+💡 Solution Approach
+This can be efficiently solved using the slow and fast pointer technique:
+
+Use two pointers: slow and fast. Initialize both at the head.
+
+Move fast two steps at a time and slow one step.
+
+When fast reaches the end, slow will be pointing to the middle node.
+
+Maintain a prev pointer that tracks the node before slow.
+
+When the middle is found, update prev->next to slow->next to delete the middle node.
+
+This approach ensures we find and delete the middle in one pass.
+
+⏱️ Time and Space Complexity
+Time Complexity: O(n)
+
+Space Complexity: O(1)
