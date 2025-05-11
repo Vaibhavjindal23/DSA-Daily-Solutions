@@ -1,0 +1,105 @@
+📘 Problem 1: Count Odd Numbers in an Interval Range
+🧾 Problem Statement:
+Given two non-negative integers low and high, return the count of odd numbers between low and high (inclusive).
+
+Example 1:
+Input: low = 3, high = 7
+
+Output: 3
+
+Explanation: Odd numbers between 3 and 7 are [3, 5, 7].
+
+Example 2:
+Input: low = 8, high = 10
+
+Output: 1
+
+Explanation: Odd numbers between 8 and 10 are [9].
+
+Constraints:
+0 <= low <= high <= 10^9
+
+🧠 Solution Approaches:
+🔹 Approach 1: Brute Force
+Iterate from low to high, and for each number, check if it's odd (i % 2 != 0). Count how many such numbers there are.
+
+When to use: This works fine for small ranges, but will time out or be inefficient for large inputs due to linear traversal.
+
+🔹 Approach 2: Mathematical Formula (Optimized One-liner)
+Instead of iterating, use the observation that:
+
+The count of odd numbers from 1 to x is x / 2 (if x is even) or (x + 1) / 2 (if odd).
+
+So the number of odd numbers between low and high is:
+
+cpp
+Copy
+Edit
+(high + 1) / 2 - low / 2
+This works because it calculates how many odds are in [1...high] and subtracts how many are in [1...low-1].
+
+⏱️ Time and Space Complexity:
+Time Complexity:
+
+Brute Force: O(high - low + 1)
+
+Optimized Formula: O(1)
+
+Space Complexity:
+
+Both approaches use O(1) space.
+
+📘 Problem 2: Insert Greatest Common Divisors in Linked List
+🧾 Problem Statement:
+You are given the head of a singly linked list where each node contains an integer. For every pair of adjacent nodes, insert a new node between them with the value equal to the greatest common divisor (GCD) of their values.
+
+Return the modified linked list.
+
+Example 1:
+Input: [18, 6, 10, 3]
+
+Output: [18, 6, 6, 2, 10, 1, 3]
+
+Explanation:
+
+GCD(18, 6) = 6 → insert between 18 and 6
+
+GCD(6, 10) = 2 → insert between 6 and 10
+
+GCD(10, 3) = 1 → insert between 10 and 3
+
+Example 2:
+Input: [7]
+
+Output: [7]
+
+Explanation: Only one node, so no pairs to process.
+
+Constraints:
+The number of nodes is in the range [1, 5000]
+
+1 <= Node.val <= 1000
+
+🧠 Solution Approach:
+🔹 Approach: Iterative Traversal + Euclidean Algorithm
+Traverse the linked list using a pointer temp.
+
+For each pair of adjacent nodes, compute the GCD of their values using the Euclidean algorithm.
+
+Create a new node with the GCD and insert it between the two nodes.
+
+Move to the next original node (skipping the newly inserted node to avoid infinite loop).
+
+GCD is calculated using the classic Euclidean method where gcd(a, b) is gcd(b, a % b) until b becomes zero.
+
+⏱️ Time and Space Complexity:
+Time Complexity: O(n)
+
+Each node is visited once.
+
+GCD computation for values <= 1000 takes constant time.
+
+Space Complexity: O(1)
+
+In-place modification with no extra data structures except new nodes.
+
