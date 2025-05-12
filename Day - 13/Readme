@@ -1,0 +1,74 @@
+Problem 1: Sign of the Product of an Array
+Problem Statement
+You are given an integer array nums. You must determine the sign of the product of all elements in the array without actually computing the full product.
+
+Return:
+
+1 if the product is positive,
+
+-1 if the product is negative,
+
+0 if the product is 0.
+
+Examples:
+Input: [-1, -2, -3, -4, 3, 2, 1] → Output: 1
+
+Input: [1, 5, 0, 2, -3] → Output: 0
+
+Input: [-1, 1, -1, 1, -1] → Output: -1
+
+Solution Approach
+Instead of multiplying all the numbers directly (which could lead to overflow), the approach focuses on the signs of individual elements:
+
+Traverse the array.
+
+If any element is 0, return 0 immediately since the product will be zero.
+
+Count how many negative numbers are present.
+
+If the count of negative numbers is even, the product is positive → return 1.
+
+If the count is odd, the product is negative → return -1.
+
+This method avoids unnecessary multiplication and is computationally efficient.
+
+Time and Space Complexity
+Time Complexity: O(n), where n is the number of elements in the array.
+
+Space Complexity: O(1), constant space since we only keep track of a count and no extra data structures are needed.
+
+Problem 2: Remove All Duplicates from a Sorted Linked List
+Problem Statement
+Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only the distinct numbers. Return the resulting linked list, which should remain sorted.
+
+Examples:
+Input: [1,2,3,3,4,4,5] → Output: [1,2,5]
+
+Input: [1,1,1,2,3] → Output: [2,3]
+
+Solution Approach
+Since the input list is sorted, duplicates will always appear consecutively. To extract only the unique values:
+
+Traverse the list and store the frequency of each value in a map.
+
+Iterate through the map and extract only those elements whose frequency is 1.
+
+Construct a new linked list using only these distinct values.
+
+This ensures that:
+
+Only non-repeating values are included.
+
+The list remains sorted due to the order preserved in the map.
+
+To build the new list, either:
+
+Use a dummy node with a tail pointer, or
+
+Dynamically append nodes using a helper function.
+
+Time and Space Complexity
+Time Complexity: O(n), where n is the number of nodes in the linked list.
+
+Space Complexity: O(n), due to the map storing frequencies of node values.
+
