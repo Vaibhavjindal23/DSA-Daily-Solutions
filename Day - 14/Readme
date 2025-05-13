@@ -1,0 +1,77 @@
+🧠 Linked List Partition & Integer Reversal
+This repository contains solutions to two classic problems:
+
+Partitioning a Linked List based on a pivot value x
+
+Reversing a 32-bit signed integer without using 64-bit data types
+
+📌 Problem 1: Partition List
+Problem Statement
+Given the head of a linked list and a value x, partition it such that all nodes with values less than x come before nodes with values greater than or equal to x.
+The original relative order of the nodes in each of the two partitions must be preserved.
+
+Example:
+Input: head = [1,4,3,2,5,2], x = 3
+Output: [1,2,2,4,3,5]
+
+Input: head = [2,1], x = 2
+Output: [1,2]
+
+💡 Approach
+Create two dummy nodes to act as the heads of two separate linked lists:
+
+One for nodes with values less than x
+
+Another for nodes with values greater than or equal to x
+
+Traverse the original list:
+
+If a node’s value is less than x, append it to the first list.
+
+Otherwise, append it to the second list.
+
+After traversal, terminate the second list by setting the last node's next pointer to nullptr. This is critical to prevent cycles or unintended links.
+
+Connect the two lists by setting the last node of the first list to point to the head of the second list.
+
+Return the head of the merged list.
+
+⏱️ Time Complexity
+O(n) — where n is the number of nodes in the original list. Each node is visited exactly once.
+
+🧠 Space Complexity
+O(1) — Only constant extra space is used for pointers and dummy nodes (not counting the output list which reuses original nodes).
+
+📌 Problem 2: Reverse Integer
+Problem Statement
+Given a signed 32-bit integer x, return x with its digits reversed.
+If the reversed integer overflows the signed 32-bit integer range [-2³¹, 2³¹ - 1], return 0.
+Assume the environment does not support 64-bit integers.
+
+Example:
+Input: 123 → Output: 321
+
+Input: -123 → Output: -321
+
+Input: 120 → Output: 21
+
+💡 Approach
+Initialize a variable to store the reversed integer (reve = 0).
+
+Use a while loop to extract the last digit of x using x % 10 and update x using integer division x / 10.
+
+Before multiplying reve by 10 and adding the new digit, check for overflow/underflow conditions:
+
+If reve > INT_MAX / 10 or reve == INT_MAX / 10 && digit > 7, it would overflow.
+
+If reve < INT_MIN / 10 or reve == INT_MIN / 10 && digit < -8, it would underflow.
+
+If safe, update reve using reve = reve * 10 + digit.
+
+Return reve after the loop ends.
+
+⏱️ Time Complexity
+O(log₁₀ x) — Since we process one digit per iteration, the number of steps depends on the number of digits in x.
+
+🧠 Space Complexity
+O(1) — Only a few integer variables are used regardless of input size.
