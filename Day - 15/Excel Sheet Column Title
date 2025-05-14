@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        string temp = "";
+        int num = columnNumber;
+        while(num > 0){
+            num--;
+            int remainder = num % 26;
+            char c = 'A' + remainder;
+            temp = c + temp; 
+            num = num / 26;
+        }
+        return temp;
+    }
+};
