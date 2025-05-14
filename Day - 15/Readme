@@ -1,0 +1,69 @@
+📘 Problem 1: Excel Sheet Column Title
+🔸 Problem Statement
+Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.
+
+Examples:
+1 → "A"
+
+28 → "AB"
+
+701 → "ZY"
+
+🔹 Constraints
+1 <= columnNumber <= 2^31 - 1
+
+✅ Approach
+To convert the column number to a title:
+
+Decrement columnNumber by 1 to handle 1-based indexing.
+
+In a loop:
+
+Find the remainder when columnNumber is divided by 26.
+
+Convert the remainder into a character ('A' + remainder).
+
+Prepend the character to the result string.
+
+Update columnNumber as columnNumber / 26.
+
+Continue until the column number becomes zero.
+
+📈 Time and Space Complexity
+Time Complexity: O(log₍₂₆₎N), where N is the column number. The loop runs while dividing the number by 26.
+
+Space Complexity: O(1), not counting the output string.
+
+📘 Problem 2: Add Two Numbers (Linked List)
+🔸 Problem Statement
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each node contains a single digit. Add the two numbers and return the sum as a linked list.
+
+Example:
+Input: (2 → 4 → 3) + (5 → 6 → 4)
+
+Output: 7 → 0 → 8
+
+✅ Approach
+To solve this:
+
+Use a dummy node to build the result list.
+
+Traverse both lists (l1 and l2) node by node.
+
+At each step:
+
+Add the values of the current nodes and the carry.
+
+Compute the new digit (sum % 10) and update the carry (sum / 10).
+
+Create a new node with the digit and link it to the result.
+
+If one list is longer, continue processing it with the carry.
+
+After processing both lists, if any carry remains, add a final node.
+
+📈 Time and Space Complexity
+Time Complexity: O(max(M, N)), where M and N are the lengths of the two input lists.
+
+Space Complexity: O(max(M, N)) for the output list. Constant auxiliary space is used (excluding output).
+
