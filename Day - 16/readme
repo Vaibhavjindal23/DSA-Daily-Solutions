@@ -1,0 +1,85 @@
+# 🚀 LeetCode Problem Solutions (Concepts & Approaches)
+
+This repository contains detailed explanations (without code) of approaches to common interview-level problems, including edge cases, logic, and time-space complexity.
+
+---
+
+## ✅ Problem 1: Delete a Node in a Singly Linked List (Without Head)
+
+### 📄 Problem Statement:
+
+You're given only access to a node in the middle of a singly linked list (not the tail), and you're required to delete it. You are **not given the head** of the list.
+
+#### 🧠 Requirements:
+- You **cannot** traverse the list from the beginning.
+- You **must delete the node** so its value no longer appears in the list.
+- All nodes **before the given node** must remain unchanged.
+- All nodes **after the deleted node** should stay in the same order.
+
+### 💡 Approaches:
+
+#### 🔹 Approach 1: Copy-Next-Node Trick
+- Copy the value of the next node into the current node.
+- Set the current node's `next` to `next->next`, bypassing the next node.
+- Delete the next node.
+
+#### 📊 Time and Space Complexity:
+- **Time:** O(1)
+- **Space:** O(1)
+
+---
+
+## ✅ Problem 2: Sum of Square Numbers
+
+### 📄 Problem Statement:
+
+Given a non-negative integer `c`, determine if there exist two integers `a` and `b` such that:
+a² + b² = c
+
+### 💡 Approaches:
+
+#### 🔹 Approach 1: Brute Force
+- Iterate `a` from 0 to `√c`
+- For each `a`, iterate `b` from 0 to `√(c - a²)`
+- Check if `a² + b² == c`
+
+##### 📊 Time Complexity:
+- **Time:** O(c)
+- **Space:** O(1)
+
+#### 🔹 Approach 2: Single Loop + Perfect Square Check
+- Loop `a` from 0 to `√c`
+- Compute `b² = c - a²`
+- Check if `b²` is a perfect square using:
+  - Binary search OR
+  - Compare `sqrt(b²)` with its integer conversion
+
+##### 📊 Time and Space:
+- **Time:** O(√c · log c) with binary search
+- **Space:** O(1)
+
+#### 🔹 Approach 3: Two-Pointer Technique
+- Initialize two pointers: `a = 0` and `b = √c`
+- While `a <= b`:
+  - Compute `sum = a² + b²`
+  - If `sum == c`: return true
+  - If `sum < c`: increment `a`
+  - If `sum > c`: decrement `b`
+
+##### 📊 Time and Space:
+- **Time:** O(√c)
+- **Space:** O(1)
+
+---
+
+## 🔚 Summary
+
+| Problem | Best Approach | Time Complexity | Space Complexity |
+|--------|----------------|-----------------|------------------|
+| Delete Node in List (no head) | Copy next node | O(1) | O(1) |
+| Sum of Square Numbers | Two-pointer | O(√c) | O(1) |
+
+---
+
+Feel free to contribute new problems or enhancements.  
+⭐ Star this repo if it helped you!
