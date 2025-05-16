@@ -1,0 +1,91 @@
+# 🔢 Two Sum & 🧱 MinStack – LeetCode Solutions
+
+This repository contains C++ solutions and explanations for two popular LeetCode problems: **Two Sum** and **MinStack**, including problem statements, approaches, and time/space complexity analysis.
+
+---
+
+## 🧩 Problem 1: Two Sum
+
+### ✅ Problem Statement
+
+Given an array of integers `nums` and an integer `target`, return the indices of the two numbers such that they add up to `target`.
+
+- Each input has exactly one solution.
+- You may not use the same element twice.
+- Return the answer in any order.
+
+#### Examples:
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Input: nums = [3,3], target = 6
+Output: [0,1]
+
+---
+
+### 💡 Approach
+
+We use a hash map to store elements and their indices as we iterate through the array. For each number, we compute the complement as `target - number` and check if it already exists in the map. If it does, we return the indices. Otherwise, we store the number and its index for future reference. This avoids the use of nested loops.
+
+---
+
+### ⏱️ Time and Space Complexity
+
+- **Time Complexity:** O(n) – Traverse the array once.
+- **Space Complexity:** O(n) – Hash map to store visited elements.
+
+---
+
+## 🧱 Problem 2: MinStack
+
+### ✅ Problem Statement
+
+Design a stack that supports the following operations in constant time:
+
+- `push(val)` – Push the element onto the stack.
+- `pop()` – Remove the top element.
+- `top()` – Return the top element.
+- `getMin()` – Retrieve the minimum element in the stack.
+
+Each operation must run in O(1) time.
+
+#### Example:
+
+Input:
+["MinStack","push","push","push","getMin","pop","top","getMin"]
+[[],[-2],[0],[-3],[],[],[],[]]
+
+Output:
+[null,null,null,null,-3,null,0,-2]
+
+---
+
+### 💡 Approach
+
+We maintain two stacks:
+
+- A main stack to store all pushed values.
+- An auxiliary stack to store the current minimum at each level.
+
+Whenever we push a value, we also push it onto the min stack if it's the smallest seen so far. When popping, we remove it from both stacks if it matches the top of the min stack. This enables retrieving the minimum value in constant time.
+
+---
+
+### ⏱️ Time and Space Complexity
+
+- **Time Complexity:** O(1) for all operations – push, pop, top, and getMin.
+- **Space Complexity:** O(n) – Additional stack to track minimum values.
+
+---
+
+## 📌 Summary
+
+These solutions demonstrate the effective use of **hash maps** and **stacks** to optimize common problems from O(n²) to O(n) or constant time.
+
+---
+
+⭐ Feel free to fork this repo, raise issues, or suggest improvements!
