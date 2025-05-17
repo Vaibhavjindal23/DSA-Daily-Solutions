@@ -1,0 +1,50 @@
+Queue Using Two Stacks & Contains Duplicate – LeetCode Solutions
+🧩 Problem 1: Implement Queue Using Two Stacks
+Problem Statement:
+Design a First-In-First-Out (FIFO) queue using only two stacks. The implemented queue should support all the standard functions: push (to add an element), pop (to remove the front element), peek (to view the front element), and empty (to check if the queue is empty).
+Only standard stack operations are allowed: push to top, pop from top, peek from top, size, and isEmpty.
+
+Approach:
+Two stacks are used:
+
+The first stack is used for all push operations.
+
+The second stack is used for all pop and peek operations.
+
+When popping or peeking, if the second stack is empty, all elements from the first stack are moved to the second. This reverses their order and ensures the queue behavior is maintained. Elements are only transferred once, ensuring amortized efficiency.
+
+Time Complexity:
+Push: O(1)
+
+Pop: Amortized O(1)
+
+Peek: Amortized O(1)
+
+Empty: O(1)
+
+Space Complexity:
+O(n), where n is the number of elements in the queue (due to storage in two stacks)
+
+🧩 Problem 2: Contains Duplicate
+Problem Statement:
+Given an array of integers, return true if any value appears at least twice, and false if every element is distinct.
+
+Example inputs:
+
+[1, 2, 3, 1] → true
+
+[1, 2, 3, 4] → false
+
+[1, 1, 1, 3, 3, 4, 3, 2, 4, 2] → true
+
+Approach:
+A map is used to count the frequency of each number. After counting, a second pass is made to check if any number appears more than once. If so, return true; otherwise, return false.
+
+While this approach is correct, using an unordered set would provide better average-case performance by checking duplicates during insertion itself.
+
+Time Complexity:
+O(n log n) due to map insertion and lookup
+
+Space Complexity:
+O(n) for storing the counts of each number
+
