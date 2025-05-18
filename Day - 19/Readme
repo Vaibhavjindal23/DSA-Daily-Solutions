@@ -1,0 +1,87 @@
+📈 Problem 1: Best Time to Buy and Sell Stock
+Problem Statement
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+
+Examples:
+Input: [7,1,5,3,6,4]
+Output: 5
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+
+Input: [7,6,4,3,1]
+Output: 0
+Explanation: No profit possible; hence return 0.
+
+Approaches
+Brute Force Approach
+The brute force approach checks all pairs of days. For every day i, it compares it with every future day j > i to calculate prices[j] - prices[i]. It tracks the maximum profit found across all these comparisons.
+
+While this method is simple and intuitive, it becomes inefficient for large arrays since it uses nested loops.
+
+Optimized Approach (Single Pass)
+The optimized solution involves iterating over the array only once while maintaining two variables:
+
+mini: the minimum price encountered so far.
+
+maxi: the maximum profit calculated so far.
+
+For each price, we update the minimum and use it to calculate the profit if we sold on that day. The result is the maximum of all such profits.
+
+Time and Space Complexity
+Brute Force:
+
+Time Complexity: O(n²)
+
+Space Complexity: O(1)
+
+Optimized Approach:
+
+Time Complexity: O(n)
+
+Space Complexity: O(1)
+
+🔒 Problem 2: Valid Parentheses
+Problem Statement
+Given a string s containing just the characters '(', ')', '{', '}', '[', and ']', determine if the input string is valid.
+
+A string is considered valid if:
+
+Open brackets must be closed by the same type of brackets.
+
+Open brackets must be closed in the correct order.
+
+Every close bracket has a corresponding open bracket of the same type.
+
+Examples:
+Input: "()"
+Output: true
+
+Input: "()[]{}"
+Output: true
+
+Input: "(]"
+Output: false
+
+Input: "([])"
+Output: true
+
+Approach
+To solve this problem, a stack data structure is used:
+
+Traverse each character in the string.
+
+Push opening brackets onto the stack.
+
+For closing brackets, check if the stack is empty or if the top of the stack is the correct matching bracket. If not, the string is invalid.
+
+After the traversal, the stack should be empty if the string is valid.
+
+This approach ensures each opening bracket has a corresponding and properly ordered closing bracket.
+
+Time and Space Complexity
+Time Complexity: O(n) — where n is the length of the string, as each character is processed once.
+
+Space Complexity: O(n) — in the worst case, all characters are opening brackets and stored in the stack
