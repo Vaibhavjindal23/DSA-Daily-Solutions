@@ -1,0 +1,96 @@
+🧩 Problem 1: Valid Parenthesis String
+📄 Problem Statement
+Given a string s containing only three types of characters: '(', ')', and '*', return true if the string is valid.
+
+A string is valid if:
+
+Every '(' has a matching ')'.
+
+Every ')' has a matching '('.
+
+Parentheses must close in correct order: '(' must come before ')'.
+
+'*' can be treated as:
+
+A left parenthesis '('
+
+A right parenthesis ')'
+
+An empty string ""
+
+✅ Examples
+Input	Output
+"()"	true
+"(*)"	true
+"(*))"	true
+
+🧠 Approach
+We use two stacks:
+
+One to store the indices of '('
+
+One to store the indices of '*'
+
+Step-by-step:
+Traverse the string:
+
+Push index of '(' to leftParenStack
+
+Push index of '*' to starStack
+
+When encountering ')':
+
+Try to pop from leftParenStack (if possible)
+
+Otherwise, pop from starStack
+
+If both are empty → invalid
+
+After processing the string:
+
+Match remaining '(' with any '*' that appears after them
+
+If any '(' remains unmatched → invalid
+
+⏱️ Time Complexity
+O(n) — we traverse the string once and do constant-time stack operations
+
+🧠 Space Complexity
+O(n) — in the worst case, we store all characters in stacks
+
+🧩 Problem 2: Pascal's Triangle — Row Retrieval
+📄 Problem Statement
+Given an integer rowIndex, return the rowIndex-th (0-indexed) row of the Pascal's Triangle.
+
+In Pascal's Triangle, each number is the sum of the two numbers directly above it. The i-th row has i+1 elements.
+
+✅ Examples
+Input	Output
+rowIndex = 3	[1, 3, 3, 1]
+rowIndex = 0	[1]
+rowIndex = 1	[1, 1]
+
+🧠 Approach
+We use the iterative binomial coefficient method to avoid calculating factorials directly.
+
+Each element in the row can be calculated from the previous one using:
+
+C(i,j)=C(i,j−1)⋅ 
+j
+i−j+1
+​
+ 
+Steps:
+Start with the first element: 1
+
+Use the formula to compute the next element from the previous one
+
+Push each computed value to the output vector
+
+This is a mathematically efficient way to build the row.
+
+⏱️ Time Complexity
+O(n) — where n = rowIndex
+
+🧠 Space Complexity
+O(n) — we only store one row of rowIndex + 1 elements
