@@ -1,0 +1,90 @@
+# Solutions to LeetCode Problems
+
+This repository contains well-documented solutions to selected LeetCode problems, focusing on clarity, optimal approaches, and complexity analysis.
+
+---
+
+## Problem 1: Minimum Remove to Make Valid Parentheses
+
+### 📝 Problem Statement
+
+Given a string `s` consisting of `'('`, `')'`, and lowercase English letters, remove the **minimum number** of parentheses to make the resulting string **valid**. A parentheses string is considered valid if:
+
+- It is empty or contains only lowercase characters, or
+- It can be written as `AB`, where both `A` and `B` are valid, or
+- It can be written as `(A)`, where `A` is valid.
+
+Return **any valid result** after minimum removals.
+
+#### Examples:
+- Input: `"lee(t(c)o)de)"` → Output: `"lee(t(c)o)de"`
+- Input: `"a)b(c)d"` → Output: `"ab(c)d"`
+- Input: `"))(("` → Output: `""`
+
+---
+
+### ✅ Approach
+
+**Stack-Based Matching & Marking:**
+
+1. Traverse the string and use a stack to track indices of unmatched `'('` and `')'`.
+2. If a `'('` is found, push its index.
+3. If a `')'` is found:
+   - If the top of the stack is `'('`, pop it (matched).
+   - Otherwise, push the `')'` index (unmatched).
+4. After traversal, all unmatched indices are marked for removal.
+5. Build a new string skipping the marked indices.
+
+---
+
+### ⏱️ Time Complexity
+
+- **O(n)** — One pass to find unmatched parentheses and one pass to rebuild the string.
+
+### 📦 Space Complexity
+
+- **O(n)** — For storing indices of unmatched parentheses in the stack and for the output string.
+
+---
+
+## Problem 2: Majority Element
+
+### 📝 Problem Statement
+
+Given an integer array `nums` of size `n`, return the **majority element** — the element that appears **more than ⌊n / 2⌋ times**.  
+It is guaranteed that such an element always exists.
+
+#### Examples:
+- Input: `[3, 2, 3]` → Output: `3`
+- Input: `[2,2,1,1,1,2,2]` → Output: `2`
+
+---
+
+### ✅ Approach
+
+**Moore's Voting Algorithm:**
+
+1. Initialize `count = 0` and `candidate = -1`.
+2. Traverse the array:
+   - If `count == 0`, set `candidate = current element`.
+   - If current element equals `candidate`, increment `count`.
+   - Else, decrement `count`.
+3. After one pass, `candidate` holds the potential majority element.
+4. Optionally verify it appears more than `n / 2` times (if not guaranteed).
+
+---
+
+### ⏱️ Time Complexity
+
+- **O(n)** — Single pass to find candidate + optional second pass to verify.
+
+### 📦 Space Complexity
+
+- **O(1)** — Only variables used, no extra space required.
+
+---
+
+## 📚 Notes
+
+- The first problem demonstrates effective use of **stack-based parsing** for string validation.
+- The second problem uses an elegant linear-time solution with constant space — **Moore's Voting Algorithm** — a classic in array majority problems.
