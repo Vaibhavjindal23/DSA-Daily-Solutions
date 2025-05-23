@@ -1,0 +1,50 @@
+Problem 1: Move Zeroes
+Problem Statement
+Given an integer array nums, move all 0s to the end of it while maintaining the relative order of the non-zero elements. You must do this in-place without making a copy of the array.
+
+Examples:
+Input: [0,1,0,3,12] → Output: [1,3,12,0,0]
+
+Input: [0] → Output: [0]
+
+Approach
+The solution first identifies the index of the first zero in the array. Once located, it iterates over the array. Every time it encounters a non-zero element after the first zero, it swaps it with the zero and moves the zero index forward. This ensures all non-zero elements retain their order and all zeros are moved to the end in-place.
+
+This approach reduces unnecessary swaps by only starting them after the first zero is found and only when needed, making it more optimal than naive two-loop solutions.
+
+Time Complexity
+The algorithm traverses the list only once, making it linear in time complexity. Each element is visited at most twice (once for finding and once for swapping), so the time complexity is O(n).
+
+Space Complexity
+Since the operations are done in-place and only a few auxiliary variables are used, the space complexity is O(1).
+
+Problem 2: Basic Calculator
+Problem Statement
+Given a string s representing a valid mathematical expression consisting of digits, +, -, (, ), and spaces, implement a basic calculator to evaluate it and return the result. You are not allowed to use any built-in function like eval().
+
+Examples:
+Input: "1 + 1" → Output: 2
+
+Input: " 2-1 + 2 " → Output: 3
+
+Input: "(1+(4+5+2)-3)+(6+8)" → Output: 23
+
+Approach
+The algorithm uses a single stack to handle nested parentheses and keeps track of the current result and sign. It processes the expression character by character:
+
+Builds multi-digit numbers using digit characters.
+
+When a + or - is encountered, it applies the current number with the current sign to the running result.
+
+When encountering an open parenthesis '(', it pushes the current result and sign onto the stack and resets them.
+
+When encountering a closing parenthesis ')', it finishes calculating the current expression, then pops the previous sign and result from the stack and applies them accordingly.
+
+This efficient one-pass approach correctly handles nested expressions and unary minus operators.
+
+Time Complexity
+Each character in the string is visited at most once, and each stack operation is constant time. Therefore, the time complexity is O(n) where n is the length of the string.
+
+Space Complexity
+The stack can at most grow proportional to the depth of nested parentheses, so the space complexity is O(n) in the worst case due to stack usage.
+
