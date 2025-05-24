@@ -1,0 +1,70 @@
+📘 README
+🚀 Problem 1: Rotate Array
+Description
+Given an array, rotate it to the right by k steps, where k is a non-negative integer.
+
+Constraints
+Array size: 1 <= nums.length <= 10^5
+
+Element range: -2^31 <= nums[i] <= 2^31 - 1
+
+Steps to rotate: 0 <= k <= 10^5
+
+Approach
+We use the reverse method, which involves three steps:
+
+Reverse the first part of the array (before the rotation point).
+
+Reverse the second part (the part to be rotated).
+
+Reverse the entire array to get the final result.
+
+This algorithm works in-place and uses O(1) extra space with O(n) time complexity, making it efficient even for large input sizes.
+
+Example
+Input: [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+
+🧱 Problem 2: Implement Stack Using Queues
+Description
+Create a class that simulates a stack (LIFO) using only two queues. It should support the following operations:
+
+push(x)
+
+pop()
+
+top()
+
+empty()
+
+Constraints
+Values: 1 <= x <= 9
+
+Up to 100 calls to the stack operations
+
+All calls to pop and top are valid (i.e., the stack is not empty)
+
+Approach
+This stack implementation uses two queues and simulates stack behavior by:
+
+Pushing new elements into the secondary queue
+
+Moving all existing elements behind the new one to preserve LIFO order
+
+Swapping queues after each push to maintain the correct order
+
+This design ensures:
+
+push() has O(n) complexity
+
+pop() and top() have O(1) complexity
+
+Space complexity remains O(n)
+
+Follow-up
+A more advanced version of the solution can be implemented using only one queue, by rearranging elements on each push.
+✅ Summary
+| Problem           | Time Complexity             | Space Complexity | In-Place | Extra Features                  |
+| ----------------- | --------------------------- | ---------------- | -------- | ------------------------------- |
+| Rotate Array      | O(n)                        | O(1)             | Yes      | Supports large `k`              |
+| Stack with Queues | O(n) (push), O(1) (pop/top) | O(n)             | No       | Can be optimized with one queue |
