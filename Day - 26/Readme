@@ -1,0 +1,62 @@
+🚀 Binary Tree Inorder Traversal & Search Range in Sorted Array
+This repository contains two solutions in C++ for well-known algorithm problems:
+
+Inorder Traversal of a Binary Tree
+
+Find the Starting and Ending Position of a Target Value in a Sorted Array
+
+🟢 Problem 1: Binary Tree Inorder Traversal
+📌 Problem Statement
+Given the root of a binary tree, return the inorder traversal of its nodes' values.
+Inorder traversal visits nodes in the following order: Left → Root → Right.
+
+🧠 Approach
+We use recursive traversal:
+
+Start from the root node.
+
+Traverse the left subtree recursively.
+
+Visit the current node (add its value to result).
+
+Traverse the right subtree recursively.
+
+This classic depth-first approach ensures that nodes are processed in the correct inorder sequence.
+
+⏱ Time Complexity
+O(n) — Each node is visited exactly once.
+
+📦 Space Complexity
+O(n) — Space for the output list.
+
+O(h) — Additional space for the recursion stack (h = tree height). In the worst case (unbalanced tree), h = n; in the best case (balanced), h = log n.
+
+🔵 Problem 2: Find First and Last Position of Element in Sorted Array
+📌 Problem Statement
+Given an array of integers nums sorted in non-decreasing order and a target value target, return the starting and ending position of target in the array.
+
+If target is not found, return [-1, -1].
+You must write an algorithm with O(log n) runtime complexity.
+
+🧠 Approach
+We use two binary searches:
+
+First Binary Search:
+
+Search for the first occurrence of the target.
+
+Even when target is found, continue searching left to ensure it's the first one.
+
+Second Binary Search:
+
+Search for the last occurrence of the target.
+
+Even when target is found, continue searching right to find the last one.
+
+Both searches ensure we pinpoint the correct boundary indices for the target value.
+
+⏱ Time Complexity
+O(log n) — Each binary search runs in logarithmic time.
+
+📦 Space Complexity
+O(1) — Constant extra space used (excluding output).
