@@ -1,0 +1,64 @@
+Tree Path Sum & Maximum Subarray Sum
+This repository contains solutions to two classic problems frequently encountered in technical interviews and coding practice platforms such as LeetCode. Both problems are implemented using optimized and clean C++ code.
+
+Problem 1: Path Sum in a Binary Tree
+Problem Statement:
+Given the root of a binary tree and an integer targetSum, determine if the tree has a root-to-leaf path such that the sum of all the values along the path equals targetSum.
+
+A leaf is a node with no children.
+
+Examples:
+Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
+Output: true
+
+Input: root = [1,2,3], targetSum = 5
+Output: false
+
+Input: root = [], targetSum = 0
+Output: false
+
+Approach:
+The solution uses Depth-First Search (DFS) recursion to explore each root-to-leaf path while keeping track of the accumulated sum.
+At each step:
+
+Add the current node’s value to the sum.
+
+If a leaf node is reached, check if the running sum equals targetSum.
+
+Recursively traverse both left and right subtrees.
+
+Time Complexity:
+O(N), where N is the number of nodes in the tree — every node is visited once.
+
+Space Complexity:
+O(H), where H is the height of the tree — due to recursion stack in DFS (could be O(N) in worst-case skewed tree).
+
+Problem 2: Maximum Subarray Sum
+Problem Statement:
+Given an integer array nums, find the contiguous subarray (containing at least one number) with the largest sum, and return its sum.
+
+Examples:
+Input: [-2,1,-3,4,-1,2,1,-5,4]
+Output: 6 (Subarray: [4, -1, 2, 1])
+
+Input: [1]
+Output: 1
+
+Input: [5,4,-1,7,8]
+Output: 23
+
+Approach:
+The implementation uses Kadane’s Algorithm:
+
+Iterate through the array while maintaining a running currentSum.
+
+If currentSum becomes negative, reset it to zero.
+
+Keep updating maxSum with the maximum of currentSum and the previously stored maximum.
+
+Time Complexity:
+O(N), where N is the size of the input array.
+
+Space Complexity:
+O(1), since only constant extra space is used for tracking the maximum and current sums.
+
