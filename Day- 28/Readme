@@ -1,0 +1,58 @@
+🔍 Problem Statement
+Given an integer array nums and an integer k, return the number of subarrays of nums where the Least Common Multiple (LCM) of the subarray's elements is equal to k.
+
+A subarray is a contiguous, non-empty sequence of elements within an array.
+
+The least common multiple of an array is the smallest positive integer that is divisible by all the array elements.
+
+💡 Approach
+We use a brute-force but optimized method:
+
+Iterate over all subarrays starting at each index i.
+
+For each subarray, maintain the current LCM.
+
+If at any point the LCM becomes greater than k, break early from the loop.
+
+Only update LCMs when the element is a factor of k (optimization to skip irrelevant subarrays).
+
+If the LCM of the current subarray equals k, increment the counter.
+
+⏱ Time and Space Complexity
+Time Complexity: O(n² * logM)
+
+n is the size of the array
+
+logM is the time to compute LCM (involves GCD computation)
+
+Space Complexity: O(1)
+
+No extra space used beyond counters and iteration variables.
+
+📄 Min_Depth_BinaryTree/README.md
+🔍 Problem Statement
+Given a binary tree, find its minimum depth.
+
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+
+Note: A leaf is a node with no children.
+
+💡 Approach
+We use Breadth-First Search (BFS):
+
+Start with the root node and push it into a queue along with the current depth (starting from 1).
+
+Traverse level-by-level.
+
+As soon as a node is encountered that has no children, return its depth. This is the minimum depth.
+
+This method is efficient because it returns immediately upon finding the first leaf node (due to BFS nature).
+
+⏱ Time and Space Complexity
+Time Complexity: O(n)
+
+Every node is visited at most once in the worst case.
+
+Space Complexity: O(n)
+
+In the worst case, all nodes might be stored in the queue (when the tree is a perfect binary tree).
