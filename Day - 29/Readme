@@ -1,0 +1,52 @@
+📘 Problem 1: Sum of Left Leaves in a Binary Tree
+🧩 Problem Statement
+Given the root of a binary tree, return the sum of all left leaves.
+
+A leaf is a node with no children.
+
+A left leaf is a leaf that is the left child of another node.
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: 24
+Explanation: There are two left leaves in the binary tree, with values 9 and 15 respectively.
+Example 2:
+Input: root = [1]
+Output: 0
+✅ Approach
+Use a recursive helper function that checks whether the current node is a left child and a leaf.
+
+Pass a boolean isLeft to indicate whether the current node is a left child.
+
+Accumulate the sum of left leaves by exploring both left and right subtrees recursively.
+
+⏱️ Time and Space Complexity
+Time Complexity: O(n) — Every node is visited once.
+
+Space Complexity: O(h) — Due to recursive call stack; h is the height of the tree.
+
+📘 Problem 2: Kth Largest Element in an Array
+🧩 Problem Statement
+Given an integer array nums and an integer k, return the kth largest element in the array.
+
+Note: It is the kth largest in the sorted order, not the kth distinct element.
+
+You are asked to solve it without sorting.
+
+Example 1:
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+Example 2:
+Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
+Output: 4
+✅ Approach
+Use a max-heap (priority queue) to store all elements.
+
+Pop the largest element k-1 times; the top after that is the kth largest.
+
+This approach avoids sorting and takes advantage of the heap structure.
+
+⏱️ Time and Space Complexity
+Time Complexity: O(n log n) — Building the heap takes O(n) and each of k pops takes O(log n).
+
+Space Complexity: O(n) — All elements are stored in the heap.
