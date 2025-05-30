@@ -1,0 +1,62 @@
+LeetCode Solutions: Flip and Invert Image & Maximum Depth of Binary Tree
+📘 Problem 1: Flip and Invert Image
+Problem Statement
+Given an n x n binary matrix image, perform two operations:
+
+Flip horizontally: Reverse each row of the image.
+
+Invert: Replace every 0 with 1 and every 1 with 0.
+
+Example:
+Input: [[1,1,0],[1,0,1],[0,0,0]]
+
+Output: [[1,0,0],[0,1,0],[1,1,1]]
+
+Approach
+Two approaches were discussed:
+
+✅ Basic Approach:
+Traverse each row and reverse it.
+
+Then, traverse each element in the matrix and invert it.
+
+Easy to understand but involves two separate passes over the data.
+
+✅ Optimized Approach:
+Combine the flip and invert into a single loop.
+
+While reversing the row, simultaneously invert the values using bit manipulation (^ 1).
+
+This reduces the number of operations and is more efficient.
+
+Time and Space Complexity
+Time Complexity: O(n^2) where n is the number of rows (or columns, since the matrix is square).
+
+Space Complexity: O(1) as operations are done in-place.
+
+🌳 Problem 2: Maximum Depth of Binary Tree
+Problem Statement
+Given the root of a binary tree, return its maximum depth, which is defined as the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+Example:
+Input: [3,9,20,null,null,15,7]
+
+Output: 3
+
+Approach
+✅ Recursive Depth-First Search (DFS):
+Use a recursive helper function.
+
+At each node, recursively compute the depth of the left and right subtrees.
+
+The depth at a node is 1 + max(left_depth, right_depth).
+
+Base case: If the node is null, return 0.
+
+This is a classic DFS approach and handles all valid binary trees efficiently.
+
+Time and Space Complexity
+Time Complexity: O(n) where n is the number of nodes in the tree, as each node is visited once.
+
+Space Complexity: O(h) where h is the height of the tree, due to the recursion stack. In the worst case (skewed tree), this could be O(n).
+
