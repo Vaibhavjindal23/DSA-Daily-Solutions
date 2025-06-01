@@ -1,0 +1,33 @@
+
+
+Example 1:
+Input: s = "egcfe"
+Output: "efcfe"
+Explanation: The minimum number of operations to make "egcfe" a palindrome is 1, and the lexicographically smallest palindrome string we can get by modifying one character is "efcfe", by changing 'g'.
+
+Example 2:
+Input: s = "abcd"
+Output: "abba"
+Explanation: The minimum number of operations to make "abcd" a palindrome is 2, and the lexicographically smallest palindrome string we can get by modifying two characters is "abba".
+
+Example 3:
+Input: s = "seven"
+Output: "neven"
+Explanation: The minimum number of operations to make "seven" a palindrome is 1, and the lexicographically smallest palindrome string we can get by modifying one character is "neven".
+
+Explained Approach
+To make a string a palindrome with the minimum number of operations, we need to ensure that for every pair of characters s[i] and s[j] where i is the index from the beginning and j is the index from the end (j = n - 1 - i), they are identical. If they are not identical, we must change at least one of them. To achieve the lexicographically smallest palindrome, when s[i] and s[j] differ, we should always change the larger character to the smaller one.
+
+Two Pointers: Initialize two pointers, i at the beginning of the string (0) and j at the end of the string (n - 1).
+Iterate and Compare: Loop while i is less than j:
+If s[i] is not equal to s[j]:
+Compare s[i] and s[j].
+If s[i] is lexicographically smaller than s[j] (e.g., 'a' < 'b'), then set s[j] = s[i]. This changes s[j] to match s[i], using one operation and keeping the smaller character.
+If s[j] is lexicographically smaller than s[i], then set s[i] = s[j]. This changes s[i] to match s[j], using one operation and keeping the smaller character.
+Increment i and decrement j to move towards the center of the string.
+Return: After the loop finishes, the string s will be the lexicographically smallest palindrome with the minimum number of operations.
+This greedy approach ensures that for each mismatched pair, we make the optimal local choice (changing the larger character to the smaller one), which leads to the overall lexicographically smallest palindrome with minimum operations.
+
+Time and Space Complexity
+Time Complexity: O(N), where N is the length of the string s. We iterate through approximately half of the string's length once.
+Space Complexity: O(1). We are modifying the input string in-place and not using any additional data structures that scale with the input size.
