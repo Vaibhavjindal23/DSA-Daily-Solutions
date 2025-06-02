@@ -1,0 +1,115 @@
+🧾 Problem: Flatten Binary Tree to Linked List
+📌 Problem Statement
+Given the root of a binary tree, flatten the tree into a "linked list" in-place.
+The flattened "linked list" should:
+
+Use the same TreeNode class.
+
+Use the right child pointer to point to the next node in the list.
+
+Always set the left child pointer to nullptr.
+
+Maintain the preorder traversal order.
+
+🔸 Example 1:
+Input:
+root = [1,2,5,3,4,null,6]
+
+Output:
+[1,null,2,null,3,null,4,null,5,null,6]
+
+🧠 Approach (Used in the Code)
+The solution involves two steps:
+
+Step 1: Preorder Traversal
+A helper function helper() is used to perform preorder traversal of the binary tree.
+
+During traversal, each node’s value is stored in a vector ans.
+
+Step 2: Rebuild Tree
+A second function create() takes the collected values and rebuilds the tree into a right-skewed linked list:
+
+Starts from the original root.
+
+Iterates through the vector ans and creates a new node for each value.
+
+Assigns each new node to the right of the current node and sets left to nullptr.
+
+🔄 Overall Flow:
+If the tree is empty or already a single node, return immediately.
+
+Traverse the tree in preorder and store node values.
+
+Reconstruct the tree as a singly right-linked list using the stored values.
+
+⏱ Time Complexity
+Preorder Traversal: O(N)
+(Each node is visited once)
+
+Rebuilding the Tree: O(N)
+(Each node value is used to create a new node)
+
+Total Time Complexity: O(N), where N is the number of nodes in the tree.
+
+📦 Space Complexity
+Auxiliary Space for Vector: O(N)
+(Stores all node values)
+
+New Nodes Created: O(N)
+(Each node is newly created in the right-skewed tree)
+
+
+
+🧾 Problem: Length of Last Word
+📌 Problem Statement
+Given a string s consisting of words and spaces, return the length of the last word in the string.
+
+A word is defined as a maximal substring consisting of non-space characters only.
+
+You are guaranteed that there will be at least one word in the string.
+
+🔸 Examples
+Example 1:
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" which has 5 characters.
+
+Example 2:
+Input: s = " fly me to the moon "
+Output: 4
+Explanation: The last word is "moon" with length 4.
+
+Example 3:
+Input: s = "luffy is still joyboy"
+Output: 6
+Explanation: The last word is "joyboy" with length 6.
+
+🧠 Approach (Used in the Code)
+This solution scans the string from right to left and counts the characters of the last word:
+
+🔄 Steps:
+Initialize a counter count = 0 and a boolean flag flag = true.
+
+Start iterating from the end of the string (i = n-1 to 0):
+
+Skip trailing spaces if the flag is true.
+
+Once a non-space character is found:
+
+Set flag = false to indicate the start of the last word.
+
+Increment the count until a space is found again.
+
+Once a space is encountered after counting has started, return count.
+
+If the loop completes without encountering a space (i.e., the entire string is a word), return count.
+
+⏱ Time Complexity
+O(N) — where N is the length of the string.
+
+The loop runs at most N times in the worst case (if the entire string is one word or ends in many spaces).
+
+📦 Space Complexity
+O(1) — Constant space used.
+
+Only a few variables (count, flag, and loop index) are used regardless of input size.
