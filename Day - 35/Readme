@@ -1,0 +1,68 @@
+📘 Problem 1: Count Segments in a String
+📝 Problem Statement
+Given a string s, return the number of segments in the string. A segment is defined to be a contiguous sequence of non-space characters.
+
+Examples:
+Input: "Hello, my name is John"
+Output: 5
+Explanation: The segments are ["Hello,", "my", "name", "is", "John"]
+
+Input: "Hello"
+Output: 1
+
+✅ Approach
+The solution uses a linear scan of the string to count the number of segments.
+
+Key Ideas:
+Traverse each character in the string.
+
+Use a flag to track if we are inside a segment.
+
+Every time we encounter a space and the flag indicates we were in a segment, we increment the count and reset the flag.
+
+At the end of the traversal, if the flag is still true, we increment the count once more for the last segment.
+
+This avoids splitting the string using library functions and gives better control over edge cases like multiple spaces or leading/trailing spaces.
+
+⏱️ Time and Space Complexity
+Time Complexity: O(n), where n is the length of the string. We do a single pass through the string.
+
+Space Complexity: O(1), constant space is used for counting and flag.
+
+🌲 Problem 2: Lowest Common Ancestor of a Binary Tree
+📝 Problem Statement
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes p and q.
+
+According to the definition from Wikipedia:
+
+“The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+Examples:
+Input:
+root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+
+Input:
+root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+
+Input:
+root = [1,2], p = 1, q = 2
+Output: 1
+
+✅ Approach
+The problem is solved using recursive traversal of the binary tree.
+
+Key Ideas:
+Recursively traverse the left and right subtrees.
+
+If the current node is either p or q, return it.
+
+If both left and right subtrees return non-null, it means p and q are found in different branches, so the current node is the LCA.
+
+If only one side returns non-null, return that side’s result up the call stack.
+
+⏱️ Time and Space Complexity
+Time Complexity: O(n), where n is the number of nodes in the tree. Each node is visited once.
+
+Space Complexity: O(h), where h is the height of the tree due to the recursive call stack. In the worst case (skewed tree), h = n.
