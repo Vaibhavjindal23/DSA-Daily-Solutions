@@ -1,0 +1,153 @@
+# 🧪 LeetCode Problem: Reverse Vowels of a String
+
+## 📄 Problem Statement
+
+Given a string `s`, reverse **only** the vowels of the string and return the resulting string.
+
+Vowels are defined as: `'a', 'e', 'i', 'o', 'u'` and their uppercase variants.  
+They can appear **multiple times** and in **any position** in the string.
+
+---
+
+### 🔸 Examples
+
+#### Example 1:
+**Input:**  
+`s = "IceCreAm"`  
+**Output:**  
+`"AceCreIm"`  
+**Explanation:**  
+The vowels are ['I', 'e', 'e', 'A']. Reversing them gives ['A', 'e', 'e', 'I'].
+
+---
+
+#### Example 2:
+**Input:**  
+`s = "leetcode"`  
+**Output:**  
+`"leotcede"`  
+**Explanation:**  
+The vowels ['e', 'e', 'o', 'e'] reverse to ['e', 'o', 'e', 'e'].
+
+---
+
+## 🚀 Approach
+
+We use a **two-pass strategy** with a **stack** to reverse only the vowels:
+
+### Step 1: Identify and store vowels
+- Traverse the string and **push all vowels into a stack**.
+- Vowels are detected using a conditional check across both lowercase and uppercase forms.
+
+### Step 2: Replace vowels in reverse order
+- Traverse the string again.
+- When encountering a vowel, **pop the top element from the stack** and replace it in the string.
+- This effectively reverses the order of vowels while leaving all other characters unchanged.
+
+---
+
+## ⏱️ Time and Space Complexity
+
+- **Time Complexity:** `O(n)`  
+  We traverse the string twice: once to collect vowels, and once to replace them.
+
+- **Space Complexity:** `O(v)`  
+  Where `v` is the number of vowels in the string. This is the size of the stack used to store them.
+
+---
+
+## ✅ Constraints
+
+- `1 <= s.length <= 3 * 10^5`
+- `s` consists of printable ASCII characters only.
+
+---
+
+## 💡 Notes
+
+This approach is clean and efficient for the given constraints. Using a stack ensures that the vowels are reversed in LIFO order without affecting the non-vowel characters in the string.
+
+
+# 🌳 LeetCode Problem: Sum Root to Leaf Numbers
+
+## 📄 Problem Statement
+
+You are given the `root` of a binary tree containing digits from `0` to `9` only.  
+Each **root-to-leaf path** in the tree represents a number formed by concatenating the node values.
+
+Return the **total sum of all root-to-leaf numbers**.
+
+A **leaf** node is a node with no children.
+
+---
+
+### 🔸 Examples
+
+#### Example 1:
+**Input:**  
+`root = [1,2,3]`  
+**Output:**  
+`25`  
+**Explanation:**  
+- Path 1 → 2 = 12  
+- Path 1 → 3 = 13  
+- Sum = 12 + 13 = 25
+
+---
+
+#### Example 2:
+**Input:**  
+`root = [4,9,0,5,1]`  
+**Output:**  
+`1026`  
+**Explanation:**  
+- Path 4 → 9 → 5 = 495  
+- Path 4 → 9 → 1 = 491  
+- Path 4 → 0 = 40  
+- Sum = 495 + 491 + 40 = 1026
+
+---
+
+## 🚀 Approach: Breadth-First Search (BFS)
+
+We use a **queue of pairs** to perform a level-order traversal of the tree.  
+Each pair contains:
+- A `TreeNode*` (current node)
+- An `int` (the number formed so far from root to this node)
+
+### BFS Steps:
+1. Initialize a queue with `{root, root->val}`.
+2. While the queue is not empty:
+   - Dequeue a node and its current number.
+   - If it's a **leaf node**, add the number to the result sum.
+   - Otherwise, push its children to the queue with updated numbers:  
+     `next_val = current_val * 10 + child->val`.
+
+This ensures that we track and add the value of every valid root-to-leaf number.
+
+---
+
+## ⏱️ Time and Space Complexity
+
+- **Time Complexity:** `O(n)`  
+  Every node is visited exactly once.
+
+- **Space Complexity:** `O(n)`  
+  Due to the space used by the queue in the worst case (for a full binary tree).
+
+---
+
+## ✅ Constraints
+
+- The number of nodes in the tree is in the range `[1, 1000]`
+- `0 <= Node.val <= 9`
+- The depth of the tree will not exceed 10
+
+---
+
+## 💡 Notes
+
+- BFS provides a clean way to track partial results across different branches.
+- This approach is iterative and avoids recursion, making it stack-safe for larger input trees.
+
+
