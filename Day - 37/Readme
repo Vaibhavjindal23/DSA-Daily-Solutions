@@ -1,0 +1,62 @@
+# 🚀 Coding Challenges - Palindromic String & Zigzag Level Order Traversal
+
+## 📘 Problem 1: First Palindromic String in an Array
+
+### 🧩 Problem Statement
+
+Given an array of strings `words`, return the **first palindromic string** in the array. If there is no such string, return an empty string `""`.
+
+A string is **palindromic** if it reads the same forward and backward.
+
+For example, given `words = ["abc","car","ada","racecar","cool"]`, the output is `"ada"` because it's the first string that is a palindrome. Although `"racecar"` is also palindromic, it appears later in the array.  
+If the input is `["notapalindrome","racecar"]`, the output is `"racecar"`.  
+If no palindromes exist, such as in `["def","ghi"]`, the output is an empty string.
+
+### ✅ Constraints
+
+- `1 <= words.length <= 100`
+- `1 <= words[i].length <= 100`
+- Each `words[i]` consists only of lowercase English letters.
+
+### 🛠️ Approach (As per Given Code)
+
+- Traverse each word in the `words` array.
+- Use a helper function to check if a word is a palindrome using two pointers (start and end).
+- As soon as a palindromic word is found, return it.
+- If no such word is found, return an empty string.
+
+### ⏱️ Time & Space Complexity
+
+- **Time Complexity:** `O(N * M)`, where `N` is the number of words and `M` is the average length of each word.
+- **Space Complexity:** `O(1)` auxiliary space, excluding input.
+
+---
+
+## 🌲 Problem 2: Binary Tree Zigzag Level Order Traversal
+
+### 🧩 Problem Statement
+
+Given the `root` of a binary tree, return the **zigzag level order traversal** of its nodes' values. That is, traverse the first level from left to right, the second from right to left, the third from left to right again, and so on, alternating at each level.
+
+For example, if the input tree is `[3,9,20,null,null,15,7]`, the output would be `[[3],[20,9],[15,7]]`, since level 1 is read left to right, level 2 is read right to left, and level 3 is read left to right again.  
+For a tree with only the root node like `[1]`, the output is `[[1]]`.  
+If the tree is empty (`[]`), the output is an empty list.
+
+### ✅ Constraints
+
+- The number of nodes in the tree is in the range `[0, 2000]`.
+- `-100 <= Node.val <= 100`
+
+### 🛠️ Approach (As per Given Code)
+
+- Perform a **Breadth-First Search (BFS)** using a queue to collect values level by level.
+- Store the values of each level in a temporary vector.
+- After traversal, reverse the values of every alternate level (index 1, 3, 5...) to produce the zigzag pattern.
+- Return the result as a 2D vector.
+
+### ⏱️ Time & Space Complexity
+
+- **Time Complexity:** `O(N)`, where `N` is the number of nodes in the binary tree.
+- **Space Complexity:** `O(N)` for storing the result and BFS queue.
+
+---
