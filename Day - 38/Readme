@@ -1,0 +1,43 @@
+🔍 Problem 1: Search in a Binary Search Tree
+📘 Problem Statement
+You are given the root of a binary search tree (BST) and an integer val.
+Find the node in the BST whose value equals val and return the subtree rooted at that node. If such a node does not exist, return null.
+
+🔎 Approach
+Binary Search Property: Leverage the BST property where all left children are less than the node, and right children are greater.
+
+Recursion: Compare val with root->val:
+
+If equal, return the current node.
+
+If val is less, search in the left subtree.
+
+If val is greater, search in the right subtree.
+
+⏱️ Time Complexity
+Average Case: O(log N) for a balanced BST.
+
+Worst Case: O(N) if the tree becomes skewed.
+
+📦 Space Complexity
+O(H) where H is the height of the tree (due to recursion stack).
+
+🔍 Problem 2: Valid Palindrome
+📘 Problem Statement
+A phrase is a palindrome if, after converting all uppercase letters into lowercase and removing all non-alphanumeric characters, it reads the same forward and backward.
+
+Given a string s, return true if it is a palindrome, otherwise return false.
+
+🔎 Approach
+Filtering: Traverse the string and store only lowercase alphanumeric characters in a new string.
+
+Reversing: Create a reversed copy of the filtered string.
+
+Comparison: If the original filtered string equals its reverse, it's a palindrome.
+
+⏱️ Time Complexity
+O(N) where N is the length of the input string.
+
+📦 Space Complexity
+O(N) due to the additional strings used for comparison.
+
