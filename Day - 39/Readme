@@ -1,0 +1,77 @@
+# Coding Solutions
+
+This repository contains solutions to two popular algorithm problems:
+
+1. **Remove All Adjacent Duplicates in a String**  
+2. **Insert into a Binary Search Tree (BST)**
+
+---
+
+## 1. Remove All Adjacent Duplicates in a String
+
+### Problem Statement
+
+You are given a string `s` consisting of lowercase English letters. A duplicate removal consists of choosing two **adjacent** and **equal** letters and removing them.
+
+You repeatedly make duplicate removals on `s` until no more can be made. Return the final string after all such removals have been completed. It can be proven that the answer is unique.
+
+---
+
+### Explanation of the Approach
+
+- The problem requires repeatedly removing adjacent duplicate pairs until no such pairs remain.
+- A natural way to simulate this is by using a **stack** data structure.
+- Iterate through each character in the string:
+  - If the stack is not empty and the current character is equal to the character at the top of the stack, pop the top character off the stack (removing the duplicate pair).
+  - Otherwise, push the current character onto the stack.
+- After processing all characters, the remaining characters in the stack form the final string with all adjacent duplicates removed.
+- This method efficiently handles removals in a single pass.
+
+---
+
+### Time and Space Complexity
+
+- **Time Complexity:** O(n), where n is the length of the string. Each character is processed once.
+- **Space Complexity:** O(n) in the worst case, when no duplicates are removed and all characters are stored in the stack.
+
+---
+
+## 2. Insert into a Binary Search Tree (BST)
+
+### Problem Statement
+
+Given the root node of a binary search tree (BST) and a value `val` to insert, insert the value into the BST and return the root node of the BST after the insertion.
+
+It is guaranteed that the new value does not exist in the original BST.
+
+---
+
+### Explanation of the Approach
+
+- BSTs have the property that for any node:
+  - Values in the left subtree are smaller.
+  - Values in the right subtree are larger.
+- To insert a new value:
+  - Start from the root.
+  - Recursively or iteratively traverse the tree.
+  - If the new value is less than the current node's value, move to the left subtree.
+  - If greater, move to the right subtree.
+  - When reaching a `nullptr` (leaf position), insert the new node here.
+- Returning the root ensures the entire tree structure remains intact and valid.
+
+---
+
+### Time and Space Complexity
+
+- **Time Complexity:** O(h), where h is the height of the BST. In the worst case (skewed tree), h = n, where n is the number of nodes.
+- **Space Complexity:** O(h) for the recursive stack in the worst case. For iterative solutions, space complexity can be O(1).
+
+---
+
+# Summary
+
+These solutions demonstrate efficient use of fundamental data structures (stack and binary tree) to solve classic algorithmic problems while maintaining optimal time and space complexity.
+
+---
+
+**Happy Coding!**
