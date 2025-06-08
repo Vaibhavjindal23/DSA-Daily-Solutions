@@ -1,0 +1,89 @@
+Lowest Common Ancestor in a Binary Search Tree & Rotate String
+🧩 Problem 1: Lowest Common Ancestor of a Binary Search Tree
+📄 Problem Statement
+Given a Binary Search Tree (BST), find the lowest common ancestor (LCA) of two given nodes p and q.
+According to the definition from Wikipedia:
+
+"The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself)."
+
+🔍 Example 1:
+yaml
+Copy
+Edit
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8  
+Output: 6
+🔍 Example 2:
+yaml
+Copy
+Edit
+Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4  
+Output: 2
+🔍 Example 3:
+makefile
+Copy
+Edit
+Input: root = [2,1], p = 2, q = 1  
+Output: 2
+💡 Approaches (LCA in BST)
+1. BST Property-Based Traversal
+Utilize the property of BST where left children are smaller and right children are greater.
+
+Traverse the tree from the root:
+
+If both p and q are smaller than current node, move to the left subtree.
+
+If both are greater, move to the right.
+
+When the split happens (i.e., one node on each side), current node is the LCA.
+
+2. Generic Binary Tree LCA (DFS-based)
+Use a recursive approach where:
+
+If the current node is null, p, or q, return it.
+
+Recursively find p and q in left and right subtrees.
+
+If both sides return non-null, current node is LCA.
+
+⏱️ Time and Space Complexity
+Approach	Time Complexity	Space Complexity
+BST Property Traversal	O(h)	O(1)
+DFS Recursive (Generic)	O(n)	O(n)
+
+h is height of the tree; in balanced BST: O(log n), in skewed: O(n)
+
+🔁 Problem 2: Rotate String
+📄 Problem Statement
+Given two strings s and goal, return true if and only if s can become goal after a number of left rotations.
+
+A left rotation moves the leftmost character to the end of the string.
+
+🔍 Example 1:
+vbnet
+Copy
+Edit
+Input: s = "abcde", goal = "cdeab"
+Output: true
+🔍 Example 2:
+vbnet
+Copy
+Edit
+Input: s = "abcde", goal = "abced"
+Output: false
+💡 Approaches (Rotate String)
+1. Concatenation Trick
+If goal is a rotation of s, then it must be a substring of s + s.
+
+Check if goal exists within s + s.
+
+2. Manual Rotation Simulation
+Iterate over all possible rotations of s:
+
+Rotate the string manually for each k (from 0 to n-1) and compare with goal.
+
+⏱️ Time and Space Complexity
+Approach	Time Complexity	Space Complexity
+Concatenation & Substring	O(n)	O(n)
+Manual Rotation Simulation	O(n²)	O(n)
+
+n is the length of the string
