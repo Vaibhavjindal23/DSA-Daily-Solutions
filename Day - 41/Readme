@@ -1,0 +1,101 @@
+📘 Problem 1: Longest Common Prefix
+🧩 Problem Description
+Given an array of strings strs, write a function to find the longest common prefix string amongst the strings in the array.
+
+If there is no common prefix, return an empty string "".
+
+🔸 Examples
+Input: ["flower", "flow", "flight"]
+Output: "fl"
+
+Input: ["dog", "racecar", "car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+
+🔸 Constraints
+1 <= strs.length <= 200
+
+0 <= strs[i].length <= 200
+
+strs[i] consists of only lowercase English letters.
+
+💡 Approach
+Lexicographic Sort:
+
+Sort the array of strings. After sorting, the first and last strings will be the most dissimilar.
+
+Compare First and Last:
+
+Only compare characters between the first and last strings.
+
+Character-by-character, check how far they match.
+
+Build the Prefix:
+
+As soon as a mismatch is found, return the prefix formed so far.
+
+⏱ Time & Space Complexity
+Time Complexity: O(N log N + M)
+Where N is the number of strings and M is the average length.
+Sorting takes O(N log N), and comparing first/last takes O(M).
+
+Space Complexity: O(1)
+Only uses constant space for storing the prefix.
+
+🌲 Problem 2: Delete Node in BST
+🧩 Problem Description
+Given a binary search tree and a key, delete the node with the given value from the BST. Return the new root of the tree.
+
+A valid BST must maintain the property:
+
+All nodes in the left subtree are smaller.
+
+All nodes in the right subtree are larger.
+
+🔸 Examples
+Input:
+root = [5,3,6,2,4,null,7], key = 3
+Output: [5,4,6,2,null,null,7] or [5,2,6,null,4,null,7]
+
+Input:
+root = [5,3,6,2,4,null,7], key = 0
+Output: Tree remains unchanged
+
+Input:
+root = [], key = 0
+Output: []
+
+🔸 Constraints
+0 <= Number of nodes <= 10^4
+
+-10^5 <= Node.val, key <= 10^5
+
+All node values are unique.
+
+root is a valid BST.
+
+💡 Approach
+Convert Tree to Sorted Array:
+
+Use inorder traversal to get sorted elements of BST.
+
+Skip the node with the matching key during traversal.
+
+Rebuild BST:
+
+Use the sorted array (without the key) to build a balanced BST.
+
+Pick the middle element as root recursively.
+
+Note: This approach does not guarantee preserving the original BST structure but results in a valid balanced BST.
+
+⏱ Time & Space Complexity
+Time Complexity: O(N)
+
+Inorder traversal takes O(N)
+
+Rebuilding BST takes O(N)
+
+Space Complexity: O(N)
+
+To store the inorder list of node values
