@@ -1,0 +1,74 @@
+# Reverse Words in a String & Validate Binary Search Tree
+
+This repository contains C++ solutions to two problems:
+1. **Reverse Words in a String** — involving string manipulation and word reversal.
+2. **Validate Binary Search Tree (BST)** — a tree traversal and validation challenge.
+
+---
+
+## 🧩 Problem 1: Reverse Words in a String
+
+### Problem Statement
+
+Given an input string `s`, reverse the order of the words.
+
+- A **word** is defined as a sequence of non-space characters.
+- The words in `s` will be separated by at least one space.
+- The returned string should:
+  - Contain the words in **reverse order**,
+  - Be **concatenated with a single space**,
+  - Have **no leading or trailing spaces**,
+  - And **reduce multiple spaces** between words to a single space.
+
+#### Examples
+
+- **Input:** `"the sky is blue"`  
+  **Output:** `"blue is sky the"`
+
+- **Input:** `"  hello world  "`  
+  **Output:** `"world hello"`
+
+- **Input:** `"a good   example"`  
+  **Output:** `"example good a"`
+
+---
+
+### Approach
+
+1. **Word Extraction**: Traverse the input string character by character, collecting sequences of non-space characters as individual words.
+2. **Trimming & Filtering**: Skip over any extra spaces — both leading, trailing, and between words.
+3. **Reverse Word Order**: Store all valid words in a list or array and reverse their order.
+4. **String Reconstruction**: Concatenate the reversed words using a single space, ensuring no trailing space remains in the final result.
+
+---
+
+## 🌳 Problem 2: Validate Binary Search Tree
+
+### Problem Statement
+
+Given the `root` of a binary tree, determine if it is a **valid Binary Search Tree (BST)**.
+
+A **valid BST** must satisfy:
+- The left subtree of a node contains only nodes with values **less than** the node’s value.
+- The right subtree contains only nodes with values **greater than** the node’s value.
+- Both left and right subtrees must also be valid BSTs.
+
+#### Examples
+
+- **Input:** `[2,1,3]`  
+  **Output:** `true`
+
+- **Input:** `[5,1,4,null,null,3,6]`  
+  **Output:** `false`  
+  **Explanation:** The right child of 5 is 4, which is not greater than 5.
+
+---
+
+### Approach
+
+1. **In-order Traversal Insight**: In a valid BST, the in-order traversal (left-root-right) yields a **strictly increasing** sequence of node values.
+2. **Traversal Logic**: Perform in-order traversal and collect node values in a list.
+3. **Validation**: Check the resulting list to ensure each value is strictly less than the next.
+4. **Early Exit**: As soon as an invalid pair is found, return `false`.
+
+---
