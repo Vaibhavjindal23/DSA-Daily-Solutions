@@ -1,0 +1,53 @@
+📘 README
+1. 🔡 Zigzag Conversion
+📌 Problem Statement
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
+P   A   H   N  
+A P L S I I G  
+Y   I   R
+Then read line by line to get the output: "PAHNAPLSIIGYIR".
+
+Write the function to perform this conversion:
+
+Function Signature: string convert(string s, int numRows);
+
+✅ Constraints
+1 <= s.length <= 1000
+
+s consists of English letters (lower-case and upper-case), , and .
+
+1 <= numRows <= 1000
+
+💡 Approach
+If the number of rows is 1 or greater than or equal to the string length, the result is just the input string.
+
+Otherwise, use a list of strings to simulate each row. Iterate through each character in the string, appending it to the correct row. Use a row index and a step variable to determine the direction (down or up). Switch direction when reaching the first or last row. Finally, concatenate all row strings to get the result.
+
+⏱ Time Complexity
+O(n), where n is the length of the input string. Each character is processed once.
+
+🧠 Space Complexity
+O(n), for storing the intermediate strings in each row.
+
+2. 🌳 Kth Smallest Element in a Binary Search Tree
+📌 Problem Statement
+Given a binary search tree (BST), find the k-th smallest element in it.
+
+Example:
+
+Input: root = [3,1,4,null,2], k = 1
+Output: 1
+
+Function Signature: int kthSmallest(TreeNode* root, int k);
+
+💡 Approach
+Perform an in-order traversal of the BST to get the node values in sorted order. Store the values in a vector. Since in-order traversal of a BST yields nodes in ascending order, the k-th smallest element is the (k-1)-th element in this list (considering 1-based indexing).
+
+Handle edge cases where k is out of bounds.
+
+⏱ Time Complexity
+O(n), where n is the number of nodes in the tree. All nodes may need to be visited.
+
+🧠 Space Complexity
+O(n), for storing the node values during in-order traversal.
+
