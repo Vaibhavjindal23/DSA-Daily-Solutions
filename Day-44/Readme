@@ -1,0 +1,58 @@
+🧩 Problem 1: Convert Sorted List to Binary Search Tree
+📄 Problem Statement:
+Given the head of a singly linked list where elements are sorted in ascending order, convert it to a height-balanced binary search tree (BST).
+
+A height-balanced BST is defined as a binary tree in which the depth of the two subtrees of every node never differs by more than one.
+
+🔢 Example:
+Input: head = [-10,-3,0,5,9]
+Output: [0,-3,9,-10,null,5]
+Explanation: One possible answer is [0,-3,9,-10,null,5], which represents a height-balanced BST.
+
+🧠 Approach:
+Convert Linked List to Array:
+
+Traverse the linked list and copy all values into an array for random access.
+
+Recursive Tree Construction:
+
+Use the array to recursively build the BST by choosing the middle element of each subarray as the root.
+
+Recursively apply the same logic to left and right halves to build subtrees.
+
+This ensures the tree remains height-balanced.
+
+⏱️ Time and Space Complexity:
+Time Complexity: O(N) where N is the number of nodes (for copying and building the tree).
+
+Space Complexity: O(N) for the array used to store linked list elements and recursion stack.
+
+🧩 Problem 2: Maximum Number of Vowels in a Substring of Given Length
+📄 Problem Statement:
+Given a string s and an integer k, return the maximum number of vowel letters in any substring of s with length k.
+
+Vowels are defined as 'a', 'e', 'i', 'o', 'u'.
+
+🔢 Example:
+Input: s = "abciiidef", k = 3
+Output: 3
+Explanation: The substring "iii" contains 3 vowels.
+
+🧠 Approach:
+Sliding Window Technique:
+
+Count the number of vowels in the first window of length k.
+
+Slide the window one character at a time:
+
+Subtract the leftmost character (if it’s a vowel).
+
+Add the rightmost character (if it’s a vowel).
+
+Keep track of the maximum count throughout.
+
+⏱️ Time and Space Complexity:
+Time Complexity: O(N) where N is the length of the string.
+
+Space Complexity: O(1) as we use only a few integer variables and no additional data structures.
+
