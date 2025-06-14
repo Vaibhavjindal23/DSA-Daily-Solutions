@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int helper(int num){
+          int count = 0; 
+          while(num > 0){
+            count = count + (num & 1);
+            num = num >> 1;
+          }
+          return count;
+    }
+    bool ischeckprime(int num){
+        if(num <2) return false;
+        if(num==2 || num==3) return true;
+        for(int i = 2; i<=sqrt(num); i++){
+            if(num % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }  
+    int countPrimeSetBits(int left, int right) {
+        int count = 0; 
+        for(int i = left; i<=right; i++){
+           int s = helper(i);
+           if(ischeckprime(s)){
+            count++;
+           }
+        }
+        return count ;
+    }
+};
