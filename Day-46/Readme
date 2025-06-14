@@ -1,0 +1,48 @@
+✅ Problem 1: Find Center of Star Graph
+🧩 Problem Statement:
+You are given a 2D integer array edges, where each edges[i] = [ui, vi] represents an undirected edge between the nodes ui and vi. The graph is guaranteed to be a star graph: one center node connected to every other node, and only those edges exist.
+
+Return the center of the given star graph.
+
+💡 Approach:
+A star graph with n nodes always has n-1 edges and one node connected to all others — this node will appear in every edge.
+
+The key idea is:
+
+For a valid star graph, the common node between any two edges must be the center.
+
+Optimized Insight:
+Look at just the first two edges: edges[0] and edges[1].
+
+The node that appears in both of them is the center.
+
+⏱ Time and Space Complexity:
+Time Complexity: O(1) — only the first two edges are checked.
+
+Space Complexity: O(1) — no extra data structures required.
+
+✅ Problem 2: Prime Number of Set Bits in Binary Representation
+🧩 Problem Statement:
+Given two integers left and right, return the count of numbers in the range [left, right] whose binary representation contains a prime number of set bits (1's).
+
+💡 Approach:
+For each number from left to right:
+
+Convert the number to binary and count the number of 1's (set bits).
+
+Check if that count is a prime number.
+
+Use a helper function to:
+
+Count set bits using bitwise operations.
+
+Check primality of the bit count using trial division up to √n.
+
+If the set bit count is prime, increment the result counter.
+
+⏱ Time and Space Complexity:
+Time Complexity: O((right - left + 1) * log N)
+where N is the average number size — log N for counting bits, and up to √N for checking primality.
+
+Space Complexity: O(1) — no significant extra space used.
+
