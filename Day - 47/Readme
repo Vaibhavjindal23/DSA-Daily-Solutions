@@ -1,0 +1,122 @@
+# 🧠 Coding Challenge Solutions
+
+This repository contains C++ solutions to two problems often asked in coding interviews and contests:
+
+1. **Number of Substrings Containing All Three Characters (a, b, c)**
+2. **Hamming Weight (Number of Set Bits in a Binary Representation)**
+
+Each problem includes:
+- ✅ Problem Statement
+- 🛠️ Explanation of Approaches
+- ⏱ Time and Space Complexity Analysis
+
+---
+
+## 🧩 Problem 1: Number of Substrings Containing All Three Characters
+
+### 📄 Problem Statement
+
+Given a string `s` consisting only of characters `'a'`, `'b'`, and `'c'`, return the number of substrings that contain at least one occurrence of **all three characters**.
+
+### ✅ Examples
+
+#### Example 1
+Input: s = "abcabc"
+Output: 10
+
+#### Example 2
+Input: s = "aaacb"
+Output: 3
+
+---
+
+### 🧠 Approaches
+
+#### ✅ 1. Brute Force Approach (Nested Loops)
+
+- For every starting index `i`, create substrings ending at every possible `j ≥ i`.
+- Check each substring manually for presence of `'a'`, `'b'`, and `'c'`.
+
+**Steps:**
+1. Iterate over all substrings.
+2. For each substring, maintain a temporary string and use a helper function `ispresent()` to check if `'a'`, `'b'`, and `'c'` exist.
+3. Count valid substrings.
+
+**Drawbacks:**  
+- Very inefficient for long strings.
+
+#### ⏱ Complexity
+
+- **Time Complexity:** O(n³)  
+  - O(n²) for generating substrings  
+  - O(n) for checking presence using linear scan  
+- **Space Complexity:** O(n) — for building substrings
+
+---
+
+#### ✅ 2. Optimized Sliding Window Approach (Two Pointers)
+
+- Use two pointers `left` and `right` to maintain a window over the string.
+- Use a count array `length[3]` to track number of `'a'`, `'b'`, `'c'` in the window.
+- For every valid window that contains all three characters, all substrings ending at `right` and starting from `left...right` are valid.
+
+**Steps:**
+1. Move the `right` pointer to expand the window.
+2. Once all three characters are present, move `left` inward and count valid substrings (`n - right`).
+3. Repeat until the end of the string.
+
+**Benefits:**
+- Linear time.
+- Very efficient for large strings.
+
+#### ⏱ Complexity
+
+- **Time Complexity:** O(n)  
+- **Space Complexity:** O(1)
+
+---
+
+## 🔢 Problem 2: Hamming Weight (Number of Set Bits)
+
+### 📄 Problem Statement
+
+Given a positive integer `n`, return the number of set bits (1s) in its binary representation.
+
+### ✅ Examples
+
+#### Example 1
+Input: n = 11
+Output: 3
+Explanation: Binary is 1011
+
+#### Example 2
+Input: n = 128
+Output: 1
+Explanation: Binary is 10000000
+
+#### Example 3
+Input: n = 2147483645
+Output: 30
+Explanation: Binary is 1111111111111111111111111111101
+
+### 🧠 Approach
+
+#### ✅ Bitwise Operation
+
+- Repeatedly check the least significant bit (LSB) using `n & 1`.
+- If LSB is 1, increment count.
+- Right-shift the number using `n >> 1` until it becomes 0.
+
+**Steps:**
+1. Initialize count = 0.
+2. While `n > 0`, do:
+   - Add `n & 1` to count.
+   - Right shift `n` by 1.
+3. Return count.
+
+---
+
+#### ⏱ Complexity
+
+- **Time Complexity:** O(log n) — where `n` is the input number (due to binary digits)
+- **Space Complexity:** O(1)
