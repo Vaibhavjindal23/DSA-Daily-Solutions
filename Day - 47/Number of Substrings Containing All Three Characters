@@ -1,0 +1,51 @@
+class Solution {
+public:
+    int numberOfSubstrings(string s) {
+        int n= s.size();
+        int count= 0;
+        int left = 0; 
+        int length[3] ={0};
+
+        for(int right = 0; right < n; right ++){
+            length[s[right]-'a']++;
+
+            while(length[0] && length[1] && length[2]){
+                count = count + n - right;
+                length[s[left]-'a']--;
+                left++;
+            }
+        }
+        return count;
+    }
+};
+
+
+
+
+
+
+
+// class Solution {
+// public:
+//     bool ispresent(string ans , char c){
+//          int n = ans.size();
+//          for(int i =0; i<n; i++){
+//             if(ans[i] == c) return true;
+//          }
+//          return false;
+//     }
+//     int numberOfSubstrings(string s) {
+//         int n = s.size();
+//         int cnt = 0; 
+//         for(int i =0; i<n; i++){
+//             string ans;
+//             for(int j =i; j<n; j++){
+//                ans += s[j];
+//                if(ispresent(ans, 'a') && ispresent(ans, 'b') && ispresent(ans, 'c')){
+//                 cnt++;
+//                }
+//             }
+//         }
+//         return cnt;
+//     }
+// };
