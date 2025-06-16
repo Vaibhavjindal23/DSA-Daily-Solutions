@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+    bool isGoodArray(vector<int>& nums) {
+        int n = nums.size();
+        if(n == 1 && nums[0] == 1) return true;
+        int g = nums[0];
+        for (int i = 1; i < n; i++) {
+            g = gcd(g, nums[i]);
+            if (g == 1)
+                return true;
+        }
+        return false;
+    }
+};
