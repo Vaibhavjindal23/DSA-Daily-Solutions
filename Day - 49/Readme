@@ -1,0 +1,77 @@
+# 📘 Day 49: Coding Challenge
+
+## ✅ Problem 1: Single Number
+
+### 📝 Problem Statement
+
+Given a **non-empty** array of integers `nums`, **every element appears twice except for one**. Find that single one.
+
+You must implement a solution with:
+- **Linear runtime complexity**
+- **Only constant extra space**
+
+---
+
+### 💡 Example
+
+- Input: `nums = [2, 2, 1]` → Output: `1`  
+- Input: `nums = [4, 1, 2, 1, 2]` → Output: `4`  
+- Input: `nums = [1]` → Output: `1`
+
+---
+
+### 🔍 Approach
+
+This problem can be solved using the **XOR operation**:
+
+- XOR (`^`) of a number with itself is 0  
+- XOR of a number with 0 is the number itself  
+- XOR is **commutative and associative**
+
+So, XOR-ing all the numbers will cancel out the ones that appear twice and leave the unique number.
+
+---
+
+### ⏱ Time and Space Complexity
+
+- **Time Complexity**: `O(n)`  
+- **Space Complexity**: `O(1)`
+
+---
+
+## ✅ Problem 2: Count Primes
+
+### 📝 Problem Statement
+
+Given an integer `n`, return the number of **prime numbers** that are **strictly less than `n`**.
+
+---
+
+### 💡 Example
+
+- Input: `n = 10` → Output: `4`  
+  (Primes: `2, 3, 5, 7`)  
+- Input: `n = 0` → Output: `0`  
+- Input: `n = 1` → Output: `0`
+
+---
+
+### 🔍 Approach
+
+This is a classic **Sieve of Eratosthenes** problem:
+
+1. Create a boolean array `isprime` of size `n`, initialized to `true`
+2. Mark `isprime[0]` and `isprime[1]` as `false`
+3. Iterate from `2` to `√n`, and mark all multiples of each prime as `false`
+4. Count the `true` values in the array as primes
+
+---
+
+### ⏱ Time and Space Complexity
+
+- **Time Complexity**: `O(n log log n)`
+- **Space Complexity**: `O(n)`
+
+---
+
+
