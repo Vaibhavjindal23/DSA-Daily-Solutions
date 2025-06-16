@@ -1,0 +1,94 @@
+📘 Problem 1: Is Good Array
+📝 Problem Statement
+Given an array nums of positive integers, determine if it's a good array.
+
+An array is said to be good if it is possible to select some subset of elements, multiply each by an integer (positive, negative, or zero), and sum them to get exactly 1.
+
+🔁 Formally:
+Can we find integers a₁, a₂, ..., aₖ and multiplicands x₁, x₂, ..., xₖ such that
+a₁*x₁ + a₂*x₂ + ... + aₖ*xₖ = 1?
+
+If yes → return true, otherwise false.
+
+💡 Examples
+Example 1:
+Input: nums = [12, 5, 7, 23]
+Output: true
+Explanation: 5*3 + 7*(-2) = 1
+Example 2:
+Input: nums = [3, 6]
+Output: false
+Explanation: No combination can give sum = 1
+🔍 Approach
+This problem is based on Bézout’s Identity, which states:
+
+For integers a and b, there exist integers x and y such that a*x + b*y = gcd(a, b).
+
+Extending this:
+
+The array is good if and only if the GCD of the entire array is 1.
+
+Steps:
+Initialize g = nums[0]
+
+Loop through the rest of the array:
+
+Update g = gcd(g, nums[i])
+
+If g == 1, return true early
+
+Return g == 1
+
+⏱ Time Complexity
+Time Complexity: O(n * log(max(nums[i])))
+(Each gcd(a, b) takes O(log min(a, b)), repeated n-1 times)
+
+Space Complexity: O(1)
+(Only a few variables used for GCD calculation)
+
+| Component        | Complexity                |
+| ---------------- | ------------------------- |
+| Time Complexity  | `O(n log M)`              |
+| Space Complexity | `O(1)`                    |
+| Key Concept      | GCD and Bézout’s Identity |
+
+
+
+📘 Problem 2: Hamming Distance
+📝 Problem Statement
+The Hamming distance between two integers is the number of bit positions in which the two numbers differ.
+
+Given two integers x and y, return their Hamming distance.
+
+💡 Examples
+Example 1:
+Input: x = 1, y = 4
+Output: 2
+Explanation:
+Binary of 1 = 0001  
+Binary of 4 = 0100  
+→ Differ at 2 positions → distance = 2
+Example 2:
+Input: x = 3, y = 1
+Output: 1
+🔍 Approach
+XOR the two integers (x ^ y):
+
+This gives a number where every differing bit is 1.
+
+Count number of 1s in the XOR result:
+
+Each 1 indicates a differing bit → this is the Hamming distance.
+
+Use bitwise operations:
+
+Right shift and mask (num & 1) to count set bits.
+
+⏱ Time Complexity
+Time Complexity: O(1)
+(Max 32-bit integers, so at most 32 iterations)
+
+Space Complexity: O(1)
+(Only a few integer variables used)
+
+
