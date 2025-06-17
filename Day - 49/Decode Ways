@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int helper(int i, int j, string s, vector<vector<int>>&dp){
+        if(i > j) return 1;
+        if(s[i] == '0' ) return 0; 
+        int ans = 0; 
+        if(dp[i][j] !=-1) return dp[i][j];
+        for(int k = i; k<= min(j, i + 1); k++){
+         string num = s.substr(i, k-i + 1);
+         int val = stoi(num);
+         if(val >= 1 && val <= 26){
+            ans += helper(k + 1, j, s, dp);
+         }
+        }
+        return dp[i][j] = ans;
+    }
+    int numDecodings(string s) {
+        int n = s.size();
+        vector<vector<int>>dp(n, vector<int>(n, -1));
+        return helper(0, n-1, s, dp);
+    }
+};
