@@ -1,0 +1,52 @@
+Break a Palindrome
+🧩 Problem Statement
+Given a palindromic string of lowercase English letters palindrome, replace exactly one character with any lowercase English letter so that:
+
+The resulting string is not a palindrome, and
+
+It is the lexicographically smallest string possible after exactly one character replacement.
+
+Return the resulting string. If no such transformation is possible (e.g., the input string has only one character), return an empty string.
+
+🔍 Definitions
+A palindrome is a string that reads the same forward and backward.
+
+A string a is lexicographically smaller than string b if, at the first position they differ, the character in a is smaller than the corresponding character in b.
+
+✅ Examples
+Example 1:
+Input: "abccba"
+Output: "aaccba"
+Explanation:
+Several ways exist to break the palindrome, like "zbccba" or "abacba", but "aaccba" is the lexicographically smallest valid result.
+
+Example 2:
+Input: "a"
+Output: ""
+Explanation:
+It's a single-character palindrome. Changing it to any other letter still results in a palindrome of length 1, so return an empty string.
+
+💡 Approach: Greedy + Lexicographical Strategy
+Edge Case Check:
+
+If the string has only one character, return "" immediately since no single-letter change can break the palindrome property.
+
+Iterate Through First Half:
+
+A palindrome is symmetric. To break it with the least lexicographic change, try changing the first non-'a' character in the first half to 'a'.
+
+This ensures the change is minimal and occurs as early as possible in the string (since earlier positions affect lexicographical order more).
+
+Fallback Case:
+
+If all characters in the first half are 'a', change the last character to 'b'.
+
+This guarantees the string is no longer a palindrome and is still as small as possible lexicographically.
+
+⏱️ Time and Space Complexity
+Time Complexity: O(n)
+We iterate at most halfway through the string (O(n/2)), hence overall time is linear in terms of the string length.
+
+Space Complexity: O(1)
+We modify the input string in-place (if mutable), using no extra space proportional to the input size.
+
